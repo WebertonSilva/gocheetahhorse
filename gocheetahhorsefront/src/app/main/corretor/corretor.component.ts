@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-corretor',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./corretor.component.scss']
 })
 export class CorretorComponent implements OnInit {
+
+  tokenCorretor: string;
 
   constructor() { }
 
