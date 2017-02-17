@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-corretor',
@@ -8,11 +12,14 @@ import { Http } from '@angular/http';
 })
 export class CorretorComponent implements OnInit {
 
-  tokenCorretor: string;
+  
+  credentials = {name: 'Alfredo Luis', cpf: 53313447635};
 
-  constructor() { }
+  isAuth;
+  
+ constructor(private _service: UserService) {}
 
   ngOnInit() {
-  }
-
+    this._service.addUser('http://10.213.124.33:3000/post', this.credentials).subscribe(users => this.isAuth = users.IsAuth);
+  } 
 }

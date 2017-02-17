@@ -1,7 +1,5 @@
-.menu {margin-top: 50px; height: calc(100% - 167px);
-    .boxs {width: 100%; max-width: 800px; margin: 80px auto 0;
-        .box-user { width: 25%; float: left; padding: 15px;
-            a {background: green; color: #fff; display: block; text-align: center; height: 150px; border-radius: 5px; text-decoration: none; text-transform: uppercase; line-height: 150px;}
-        }
+.boxs {width: 100%; max-width: 800px; margin: 80px auto 0;
+    .box-user { width: 25%; float: left; padding: 15px;
+        a {background: green; color: #fff; display: block; text-align: center; height: 150px; border-radius: 5px; text-decoration: none; text-transform: uppercase; line-height: 150px;}
     }
 }

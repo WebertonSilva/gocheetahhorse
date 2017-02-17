@@ -1,3 +1,26 @@
-<p>
-  corretor works!
-</p>
+<div class="main-height">
+  <div class="container">
+    <div *ngIf="isAuth">
+      <h1 class="title-primary">COMUNICAÇÃO DE SINISTRO</h1>
+      <hr class="hr_line">
+
+      <p class="subtitle">Seja bem vindo, corretor GoHorse <strong>{{credentials.name}},</strong> informe os dados do segurado.</p>
+
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="cpfSegurado">CPF do Segurado</label>
+          <input type="number" class="form-control" id="cpfSegurado">
+          <button type="button" class="btn btn-default cancel">cancelar</button>
+          <button type="button" class="btn btn-default confirm">continuar</button>
+        </div>
+        
+      </form>
+    </div>
+    <div *ngIf="!isAuth">
+      <h1 class="title-primary">COMUNICAÇÃO DE SINISTRO</h1>
+      <hr class="hr_line">
+
+      <p class="subtitle">Usuario não existe</p>
+    </div>
+  </div>
+</div>
