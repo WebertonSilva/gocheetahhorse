@@ -1,15 +1,21 @@
 package br.com.gch.back.soap.ws.model;
 
-import java.util.Date;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
+
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "logarEntrada", propOrder = {
+	    "codCia",
+	    "codCpfCnpj",
+	    "dtNascimento"
+	})
 public class Login {
 
 	@XmlElement(name="codCia", required=false)
@@ -19,11 +25,11 @@ public class Login {
     protected String codCpfCnpj;
 	
     @XmlSchemaType(name = "dtNascimento")
-    protected Date dtNascimento;
+    protected XMLGregorianCalendar dtNascimento;
     
     public Login() {}
     
-	public Login(String codCia, String codCpfCnpj, Date dtNascimento) {
+	public Login(String codCia, String codCpfCnpj, XMLGregorianCalendar dtNascimento) {
 		super();
 		this.codCia = codCia;
 		this.codCpfCnpj = codCpfCnpj;
@@ -46,11 +52,11 @@ public class Login {
 		this.codCpfCnpj = codCpfCnpj;
 	}
 
-	public Date getDtNascimento() {
+	public XMLGregorianCalendar getDtNascimento() {
 		return dtNascimento;
 	}
 
-	public void setDtNascimento(Date dtNascimento) {
+	public void setDtNascimento(XMLGregorianCalendar dtNascimento) {
 		this.dtNascimento = dtNascimento;
 	}   
 	

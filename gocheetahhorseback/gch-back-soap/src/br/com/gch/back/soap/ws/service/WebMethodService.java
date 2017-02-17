@@ -10,8 +10,8 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
 
+import br.com.gch.back.soap.ws.dao.LoginDao;
 import br.com.gch.back.soap.ws.model.Usuario;
-import br.com.gch.back.ws.dao.LoginDao;
 
 @WebService
 @SOAPBinding(style=Style.DOCUMENT)
@@ -28,7 +28,7 @@ public class WebMethodService {
 								 ){
 		
 		System.out.println("Buscando Usuario...");
-		Usuario usuario = dao.buscarUsuario(cpf);		
+		Usuario usuario = dao.buscarUsuario(codCia, cpf, dtNascimento);		
 		return usuario;		
 	}
 }
