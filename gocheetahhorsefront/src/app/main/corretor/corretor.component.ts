@@ -20,6 +20,6 @@ export class CorretorComponent implements OnInit {
  constructor(private _service: UserService) {}
 
   ngOnInit() {
-    this._service.addUser('http://10.213.124.33:3000/post', this.credentials).subscribe(users => this.isAuth = users.IsAuth);
+    this._service.addUser('http://10.213.124.22:3000/post', this.credentials).subscribe(users => this.isAuth = users.IsAuth);
   } 
 }
