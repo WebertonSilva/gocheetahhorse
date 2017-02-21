@@ -25,11 +25,13 @@ public class LoginDaoTest {
 	public void buscarUsuarioTest() throws ParseException{
 		
 		Usuario usuario = this.dao.buscarUsuario("1", "38961873091", new Date(315543600000L));
-		Assert.assertTrue(usuario.getDtNascimento()
-				.compare(DateUtils.toXmlGregorianCalendar(dao.getDate(1980, 1, 1)))==0);
+		Assert.assertTrue(usuario.getDtNascimento().compareTo(dao.getDate(1980, 1, 1))==0);
 		
-		System.out.println(usuario.ge);
+		
+		System.out.println(new Date(315532800000l));
 		
 	}
+	
+	
 
 }

@@ -1,5 +1,7 @@
 package br.com.gch.back.rest.model;
 
+import java.util.Date;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -23,9 +25,9 @@ public class Usuario {
 	@XmlElement(name="email", required=false)
     private String email;
 	
-	@XmlSchemaType(name = "dateTime")
+//	@XmlSchemaType(name = "dateTime")
 	@XmlElement(name="dtNascimento", required=false)
-    protected XMLGregorianCalendar dtNascimento;
+    protected Date dtNascimento;
 	
 	@XmlElement(name="endereco", required=false)
     private String endereco; 
@@ -38,7 +40,7 @@ public class Usuario {
     
     public Usuario() {}
     
-	public Usuario(String codRetorno, String cpf, String nome, String email, XMLGregorianCalendar dtNascimento, String endereco, double lat,
+	public Usuario(String codRetorno, String cpf, String nome, String email, Date dtNascimento, String endereco, double lat,
 			double longe) {
 		super();
 		
@@ -76,11 +78,11 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public XMLGregorianCalendar getDtNascimento() {
+	public Date getDtNascimento() {
 		return dtNascimento;
 	}
 
-	public void setDtNascimento(XMLGregorianCalendar dtNascimento) {
+	public void setDtNascimento(Date dtNascimento) {
 		this.dtNascimento = dtNascimento;
 	}
 
@@ -123,8 +125,8 @@ public class Usuario {
 	    private String cpf;
 	    private String nome;
 	    private String email;
-	    @XmlSchemaType(name = "dateTime")
-	    private XMLGregorianCalendar dtNascimento;
+//	    @XmlSchemaType(name = "dateTime")
+	    private Date dtNascimento;
 	    private String endereco; 
 	    private double lat;
 	    private double longe;
@@ -154,7 +156,7 @@ public class Usuario {
 			return this;
 		}
 		
-		public Builder comdtNascimento(XMLGregorianCalendar dtNascimento) {
+		public Builder comdtNascimento(Date dtNascimento) {
 			this.dtNascimento = dtNascimento;
 			return this;
 		}

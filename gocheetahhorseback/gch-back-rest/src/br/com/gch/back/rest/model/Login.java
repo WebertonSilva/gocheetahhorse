@@ -4,7 +4,7 @@ public class Login {
 	
 	private String cpf;
 	private long dataNascimento;
-	private String codCia;
+	private String indAcesso;
 
 public Login() {}
 	
@@ -25,10 +25,10 @@ public Login() {}
 	}
 	
 	public String getCodCia() {
-		return this.codCia;
+		return this.indAcesso;
 	}
 
 	public void setCodCia(String origem) {
-		this.codCia = origem;
+		this.indAcesso = origem;
 	}
 }
