@@ -28,6 +28,8 @@ public class LoginDaoTest {
 		Assert.assertTrue(usuario.getDtNascimento()
 				.compare(DateUtils.toXmlGregorianCalendar(dao.getDate(1980, 1, 1)))==0);
 		
+		System.out.println(usuario.ge);
+		
 	}
 
 }
