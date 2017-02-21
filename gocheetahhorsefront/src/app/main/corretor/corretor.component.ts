@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import { UserService } from '../../services/user.service';
+import { SetCiaService } from '../../services/setCia.service';
 
 @Component({
   selector: 'app-corretor',
@@ -16,9 +17,6 @@ export class CorretorComponent implements OnInit {
   
   credentials = {name: 'Alfredo Luis', cpf: 53313447635, seguradora: 1};
 
-  @Output()
-  tipoSeguradora: EventEmitter<string> = new EventEmitter;
-
   isAuth;
 
   segurado;
@@ -27,27 +25,25 @@ export class CorretorComponent implements OnInit {
     cpf: new FormControl(),
   });
   
-  constructor(private _service: UserService) {}
+  constructor(private _service: UserService, private _setCiaService:SetCiaService) {}
 
   ngOnInit() {
-    this._service.addUser('http://localhost:3000/post', this.credentials).subscribe(users => {
-        this.isAuth = users.IsAuth;
-        this.tipoSeguradora.emit(users.seguradora);
-        console.log(users);
+    this._service.addUser('http://localhost:3000/post', this.credentials).subscribe(user => {
+        this.isAuth = user.IsAuth;
+        this._setCiaService.changeCia(user.seguradora);
       });
   } 
 
   getSegurado() {
     let cpf = this.formCpfSegurado.get('cpf').value;
     let segurador = {
-      dataNascimento: 1340128712111,
       cpf: cpf,
       codCia: 1
     }
 
     console.log(segurador);
-     this._service.addUser('https://gch-back-rest.herokuapp.com/rest/login', segurador).subscribe(users => {
-        this.segurado = users;
+     this._service.addUser('https://gch-back-rest.herokuapp.com/rest/login', segurador).subscribe(user => {
+        this.segurado = user;
         console.log(this.segurado);
       });
   }

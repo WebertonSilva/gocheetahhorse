@@ -19,6 +19,7 @@ import { MainComponent } from './main/main.component';
 import {rotas } from './app.routing';
 
 import { UserService } from './services/user.service';
+import { SetCiaService } from './services/setCia.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,10 @@ import { UserService } from './services/user.service';
     SeguradoAModule,
     SeguradoBModule
   ],
-  providers: [UserService],
+  providers: [
+    UserService,
+    SetCiaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
