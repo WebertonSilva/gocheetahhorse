@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./callcenter.component.scss']
 })
 export class CallcenterComponent implements OnInit {
-
-  constructor() { }
+  cor;
+  constructor() { 
+    this.cor= 'green';
+  }
 
   ngOnInit() {
   }
