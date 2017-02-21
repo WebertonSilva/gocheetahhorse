@@ -6,6 +6,7 @@ import java.util.GregorianCalendar;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
@@ -19,16 +20,17 @@ import br.com.ghc.back.rest.ws.Usuario;
 
 
 @Path("/")
-public class GchService {
+public class GchService{
 	
-	Barramento port = new Barramento(); 
+	Barramento port = new Barramento();
 	
 	/**
 	 * Login realizado pelo CheetahHorse BB
 	 */
 	@POST
 	@Path("loginCheetahHorseBB")
-	@Consumes(MediaType.APPLICATION_JSON)	
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response logarCheetahHorseBB(Login login){
 		
 		try {
@@ -37,14 +39,89 @@ public class GchService {
 			GregorianCalendar gregory = new GregorianCalendar();
 			gregory.setTime(new Date(login.getDataNascimento()));
 
-			XMLGregorianCalendar dealCloseDate = DatatypeFactory.newInstance()
-			.newXMLGregorianCalendar(gregory);
+			XMLGregorianCalendar dealCloseDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(gregory);
 			
-			Usuario usuario = port.getPort().buscarUsuario(login.getCodCia(), login.getCpf(),dealCloseDate);
+			//Usuario usuario = port.getPort().buscarUsuario(login.getCodCia(), login.getCpf(), dealCloseDate);
+			Usuario usuario = new Usuario();
+			usuario.setNome("Marcos");
+			usuario.setCodCpfCnpj("34578920909");
+			
 			if (usuario != null) {
 				System.out.println("Geração de JWT para Segurado CheetahHorseBB");
 				String compactJws = JwtToken.generateToken(login);
-				return Response.ok().header("jwt", compactJws ).build();
+				return Response.ok().entity(usuario).header("jwt", compactJws).build();
+			} else {
+				return Response.status(Status.UNAUTHORIZED).build();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Response.status(Status.UNAUTHORIZED).build();
+		}
+	}
+	
+	/**
+	 * Login realizado pelo CheetahHorse Seguros - Usuário já logado
+	 */
+	@POST
+	@Path("loginCheetahHorseSeguros")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response logarCheetahHorseSeguros(Login login){
+		try {
+			if (login.getCpf() != null && !login.getCpf().equals("")) {
+				if (JwtToken.verifyToken(login.getJwtToken())) {
+					System.out.println("Checagem de JWT enviado para validação (loginCheetahHorseSeguros)");
+					return Response.ok().header("jwt", login.getJwtToken()).build();
+				} else {
+					return Response.status(Status.UNAUTHORIZED).build();
+				}
+			} else {
+				return Response.status(Status.UNAUTHORIZED).build();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Response.status(Status.UNAUTHORIZED).build();
+		}
+	}
+	
+	/**
+	 * Login realizado pelo Corretor CheetahHorse - Usuário já logado
+	 */
+	@Path("loginCheetahHorseCorretor")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response loginCheetahHorseCorretor(Login login){
+		try {
+			if (login.getCpf() != null && !login.getCpf().equals("")) {
+				System.out.println("Checagem de JWT enviado para validação (loginCheetahHorseCorretor)");
+				if (JwtToken.verifyToken(login.getJwtToken())) {
+					return Response.ok().header("jwt", login.getJwtToken()).build();
+				} else {
+					return Response.status(Status.UNAUTHORIZED).build();
+				}
+			} else {
+				return Response.status(Status.UNAUTHORIZED).build();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Response.status(Status.UNAUTHORIZED).build();
+		}
+	}
+	
+	/**
+	 * Login realizado pelo Call Center CheetahHorse - Usuário já logado
+	 */
+	@Path("loginCheetahHorseCallCenter")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response loginCheetahHorseCallCenter(Login login){
+		try {
+			if (login.getCpf() != null && !login.getCpf().equals("")) {
+				System.out.println("Checagem de JWT enviado para validação (loginCheetahHorseCallCenter)");
+				if (JwtToken.verifyToken(login.getJwtToken())) {
+					return Response.ok().header("jwt", login.getJwtToken()).build();
+				} else {
+					return Response.status(Status.UNAUTHORIZED).build();
+				}
 			} else {
 				return Response.status(Status.UNAUTHORIZED).build();
 			}

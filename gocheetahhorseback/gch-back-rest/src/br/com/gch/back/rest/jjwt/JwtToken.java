@@ -12,14 +12,14 @@ import io.jsonwebtoken.impl.crypto.MacProvider;
 
 public class JwtToken {
 
-
+	/*Para requisições que já possuem o Token*/
     private static final Key secret = MacProvider.generateKey(SignatureAlgorithm.HS256);
     private static final byte[] secretBytes = secret.getEncoded();
     private static final String base64SecretBytes = Base64.getEncoder().encodeToString(secretBytes);
 
     public static String generateToken(Login login) {
         Date now = new Date();
-        Date exp = new Date(System.currentTimeMillis() + (1000 * 30)); // 30 seconds
+        Date exp = new Date(System.currentTimeMillis() + (1000 * 300)); // 5 minutes
 
         String token = Jwts.builder()
             .setId(login.getCpf())
