@@ -1,24 +1,24 @@
-<div class="main-height">
+<div class="main-height" (tipoSeguradora)="console.log('teste')">
   <div class="container">
     <div *ngIf="isAuth">
-      <h1 class="title-primary">COMUNICAÇÃO DE SINISTRO</h1>
-      <hr class="hr_line">
+      <h1 class="title-primary-1">COMUNICAÇÃO DE SINISTRO</h1>
+      <hr class="hr-line-1">
 
       <p class="subtitle">Seja bem vindo, corretor GoHorse <strong>{{credentials.name}},</strong> informe os dados do segurado.</p>
 
-      <form class="form-inline">
+      <form [formGroup]="formCpfSegurado" class="form-inline">
         <div class="form-group">
           <label for="cpfSegurado">CPF do Segurado</label>
-          <input type="number" class="form-control" id="cpfSegurado">
+          <input type="number" class="form-control" id="cpfSegurado" formControlName="cpf">
           <button type="button" class="btn btn-default cancel">cancelar</button>
-          <button type="button" class="btn btn-default confirm">continuar</button>
+          <button type="button" class="btn btn-default confirm" (click)="getSegurado()">continuar</button>
         </div>
         
       </form>
     </div>
-    <div *ngIf="!isAuth">
-      <h1 class="title-primary">COMUNICAÇÃO DE SINISTRO</h1>
-      <hr class="hr_line">
+    <div *ngIf="isAuth == false">
+      <h1 class="title-primary-1">COMUNICAÇÃO DE SINISTRO</h1>
+      <hr class="hr-line-1">
 
       <p class="subtitle">Usuario não existe</p>
     </div>
