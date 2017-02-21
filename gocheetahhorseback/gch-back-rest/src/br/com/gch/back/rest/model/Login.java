@@ -5,6 +5,7 @@ public class Login {
 	private String cpf;
 	private long dataNascimento;
 	private String codCia;
+	private String jwtToken;
 
 public Login() {}
 	
@@ -30,5 +31,13 @@ public Login() {}
 
 	public void setCodCia(String origem) {
 		this.codCia = origem;
+	}
+
+	public String getJwtToken() {
+		return this.jwtToken;
+	}
+
+	public void setJwtToken(String jwtToken) {
+		this.jwtToken = jwtToken;
 	}
 }
