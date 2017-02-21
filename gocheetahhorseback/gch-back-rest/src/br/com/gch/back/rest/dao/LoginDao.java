@@ -26,6 +26,9 @@ public class LoginDao {
 
 		Usuario chelsey = new Usuario("5", "30730365638", "Chelsey Dietrich", "Lucio_Hettinger@annie.ca", new Date(315543600000l),
 				"Skiles Walks", -31.8129, -62.5342);
+		
+		Usuario joao = new Usuario("6", "11111111111", "João da Silva", "joao@gmail.com", new Date(315543600000l),
+				"Av Paulista 201", -31.8129, -62.5342);
 
 		banco.put(leanne.getCpf(), leanne);
 		banco.put(ervin.getCpf(), ervin);
