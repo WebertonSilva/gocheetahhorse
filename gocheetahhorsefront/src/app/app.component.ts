@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app works!';
+  seguradora: string;
+
+  setSeguguradora( event ) {
+      console.log(event);
+      this.seguradora = event;
+    }
 }
