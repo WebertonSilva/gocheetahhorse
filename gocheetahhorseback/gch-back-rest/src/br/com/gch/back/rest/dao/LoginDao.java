@@ -34,14 +34,14 @@ public class LoginDao {
 		banco.put(chelsey.getCpf(), chelsey);
 	}
 
-	public Usuario buscarUsuario(String idCia, String id, Date dtNascimento) {		
+	public Usuario buscarUsuario(String indAcesso, String id, Date dtNascimento) {		
 		Usuario usuario = banco.get(id);
 		
 		
-		if(idCia.equals("2") && usuario.getDtNascimento().compareTo(dtNascimento) == 0){
+		if(indAcesso.equals("2") && usuario.getDtNascimento().compareTo(dtNascimento) == 0){
 			return usuario;
 		}
-		else if(idCia.equals("1") || idCia.equals("3") || idCia.equals("4") || idCia.equals("5")){
+		else if(indAcesso.equals("1") || indAcesso.equals("3") || indAcesso.equals("4") || indAcesso.equals("5")){
 			return usuario;
 		}else{
 			return null;

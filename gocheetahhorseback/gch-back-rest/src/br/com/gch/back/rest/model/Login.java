@@ -24,11 +24,11 @@ public Login() {}
 		this.cpf = cpf;
 	}
 	
-	public String getCodCia() {
+	public String getIndAcesso() {
 		return this.indAcesso;
 	}
 
-	public void setCodCia(String origem) {
-		this.indAcesso = origem;
+	public void setIndAcesso(String indAcesso) {
+		this.indAcesso = indAcesso;
 	}
 }
