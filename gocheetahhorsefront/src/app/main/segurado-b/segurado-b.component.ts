@@ -29,7 +29,7 @@ export class SeguradoBComponent implements OnInit {
     let segurado = {
       cpf: '38961873091',
       dataNascimento: 315532800000,
-      codCia: '1'
+      indAcesso: '1'
     }
 
     console.log(segurado);

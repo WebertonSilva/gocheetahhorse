@@ -15,7 +15,7 @@ import { SetCiaService } from '../../services/setCia.service';
 })
 export class CorretorComponent implements OnInit {
   
-  credentials = {cpf: '38961873091', codCia: '1'};
+  credentials = {cpf: '38961873091', indAcesso: '1'};
   idAuth;
   segurado;
 
