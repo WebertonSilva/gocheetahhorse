@@ -4,8 +4,7 @@ public class Login {
 	
 	private String cpf;
 	private long dataNascimento;
-	private String codCia;
-	private String jwtToken;
+	private String indAcesso;
 
 public Login() {}
 	
@@ -25,19 +24,11 @@ public Login() {}
 		this.cpf = cpf;
 	}
 	
-	public String getCodCia() {
-		return this.codCia;
+	public String getIndAcesso() {
+		return this.indAcesso;
 	}
 
-	public void setCodCia(String origem) {
-		this.codCia = origem;
-	}
-
-	public String getJwtToken() {
-		return this.jwtToken;
-	}
-
-	public void setJwtToken(String jwtToken) {
-		this.jwtToken = jwtToken;
+	public void setIndAcesso(String indAcesso) {
+		this.indAcesso = indAcesso;
 	}
 }
