@@ -1,10 +1,10 @@
 <div class="main-height">
   <div class="container">
-    <div *ngIf="isAuth">
+    <div *ngIf="idAuth">
       <h1 class="title-primary-1">COMUNICAÇÃO DE SINISTRO</h1>
       <hr class="hr-line-1">
 
-      <p class="subtitle">Seja bem vindo, corretor GoHorse <strong>{{credentials.name}},</strong> informe os dados do segurado.</p>
+      <p class="subtitle">Seja bem vindo, corretor GoHorse <strong>{{segurado.nome}},</strong> informe os dados do segurado.</p>
 
       <form [formGroup]="formCpfSegurado" class="form-inline">
         <div class="form-group">
@@ -16,7 +16,7 @@
         
       </form>
     </div>
-    <div *ngIf="isAuth == false">
+    <div *ngIf="idAuth == false">
       <h1 class="title-primary-1">COMUNICAÇÃO DE SINISTRO</h1>
       <hr class="hr-line-1">
 

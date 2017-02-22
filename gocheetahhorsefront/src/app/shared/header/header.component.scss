@@ -1,6 +1,7 @@
 header {width: 100%; height: 72px;
     &.ma {background: green}
     &.bb {background: orangered}
+    &.null {background: gray}
     .container {height: 72px;
         h1 {color: #fff; margin: 16px 0 0 30px;}
     }

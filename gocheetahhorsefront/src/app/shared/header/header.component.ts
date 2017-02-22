@@ -9,7 +9,7 @@ import {Subscription} from 'rxjs/Subscription';
 })
 export class HeaderComponent implements OnInit {
 
-  seguradora = 1;
+  seguradora;
   subscription:Subscription;
 
   constructor(private _setCiaService:SetCiaService) {}
