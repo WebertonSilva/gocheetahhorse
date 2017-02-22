@@ -1,5 +1,7 @@
-<header  [ngClass]="{'ma': seguradora == 1, 'bb': seguradora == 2, 'null': seguradora == ''}">
-  <div class="container">
-    <h1>GoHorse</h1>
-  </div>
+<header [ngClass]="{'ma': seguradora == 1, 'bb': seguradora == 2, 'null': seguradora == ''}">
+  <a [routerLink]="['/main/menu']">
+    <div class="container">
+      <h1></h1>
+    </div>
+  </a>
 </header>

@@ -8,8 +8,11 @@ import { SetCiaService } from '../../services/setCia.service';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private _setCiaService:SetCiaService) {}
 
+  constructor(private _setCiaService:SetCiaService) { 
+    _setCiaService.changeCia('');
+  }
+  
   ngOnInit() {
     this._setCiaService.changeCia('');
   }
