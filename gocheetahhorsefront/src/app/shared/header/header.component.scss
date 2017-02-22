@@ -1,8 +1,24 @@
 header {width: 100%; height: 72px;
-    &.ma {background: green}
-    &.bb {background: orangered}
-    &.null {background: gray}
+    &.ma {  background: green;
+            background-image: url("../../../assets/img/logo1.png");
+            background-repeat:no-repeat;
+            background-size:auto 72px;
+            background-position: 50px;}
+    &.bb {  background: orangered;
+            background-image: url("../../../assets/img/logo2.png");
+            background-repeat:no-repeat;
+            background-size:auto 72px;
+            background-position: 50px;}
+    &.null {background: gray;
+            background-image: url("../../../assets/img/logo0.png");
+            background-repeat:no-repeat;
+            background-size:auto 72px;
+            background-position: 50px;
+            }
     .container {height: 72px;
-        h1 {color: #fff; margin: 16px 0 0 30px;}
+        h1 {
+            text-indent:-9999px;
+            overflow:hidden;
+            }
     }
 }

@@ -20,7 +20,7 @@ export class CorretorComponent implements OnInit {
   segurado;
 
   formCpfSegurado: FormGroup = new FormGroup({
-    cpf: new FormControl(),
+    cpf: new FormControl()
   });
   
   constructor(private _service: UserService, private _setCiaService:SetCiaService) {}
