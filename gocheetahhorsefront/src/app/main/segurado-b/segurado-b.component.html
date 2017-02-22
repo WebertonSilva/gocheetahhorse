@@ -1,26 +1,26 @@
 <div class="main-height">
   <div class="container">
-    <div *ngIf="isAuth">
+    <div>
       <h1 class="title-primary-2">COMUNICAÇÃO DE SINISTRO</h1>
       <hr class="hr-line-2">
 
-      <p class="subtitle">Seja bem vindo, corretor GoHorse <strong>{{credentials.name}},</strong> informe os dados do segurado.</p>
+      <p class="subtitle">Olá Segurado, vamos ajudá-lo na comunicação do seu sinistro. Por favor, imforme os dados a baixo</p>
 
-      <form class="form-inline">
+      <form [formGroup]="formSeguradoBB" class="form-inline">
         <div class="form-group">
-          <label for="cpfSegurado">CPF do Segurado</label>
-          <input type="number" class="form-control" id="cpfSegurado">
+          <label for="dtNascimento">Data de nascimento</label>
+          <input type="number" class="form-control" id="dtNascimento" formControlName="dtNascimento">
+        </div>
+        <div class="form-group">
+          <label for="cpfSegurado">CPF</label>
+          <input type="text" class="form-control" id="cpfSegurado" formControlName="cpf">
+        </div>
+        <div class="btns">
           <button type="button" class="btn btn-default cancel">cancelar</button>
-          <button type="button" class="btn btn-default confirm">continuar</button>
+          <button type="button" class="btn btn-default confirm" (click)="getSegurado()">continuar</button>
         </div>
         
       </form>
-    </div>
-    <div *ngIf="!isAuth">
-      <h1 class="title-primary-2">COMUNICAÇÃO DE SINISTRO</h1>
-      <hr class="hr-line-2">
-
-      <p class="subtitle">Usuario não existe</p>
     </div>
   </div>
 </div>

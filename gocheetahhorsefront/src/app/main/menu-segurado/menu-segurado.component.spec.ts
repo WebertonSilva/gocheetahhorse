@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { SeguradoAComponent } from './segurado-a.component';
+import { MenuSeguradoComponent } from './menu-segurado.component';
 
-describe('SeguradoAComponent', () => {
-  let component: SeguradoAComponent;
-  let fixture: ComponentFixture<SeguradoAComponent>;
+describe('MenuSeguradoComponent', () => {
+  let component: MenuSeguradoComponent;
+  let fixture: ComponentFixture<MenuSeguradoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SeguradoAComponent ]
+      declarations: [ MenuSeguradoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SeguradoAComponent);
+    fixture = TestBed.createComponent(MenuSeguradoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

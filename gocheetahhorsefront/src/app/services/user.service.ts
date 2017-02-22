@@ -22,7 +22,7 @@ export class UserService {
     }
 
     addUser(url, user){
-        let headers = new Headers({ 'Content-Type': 'application/json'});
+        let headers = new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'});
         let options = new RequestOptions({ headers: headers });
         return this._http.post(url, user, options)
             .map(res => res.json());
