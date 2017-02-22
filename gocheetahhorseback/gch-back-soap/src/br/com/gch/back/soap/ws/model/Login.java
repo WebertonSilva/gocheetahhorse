@@ -12,8 +12,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "logarEntrada", propOrder = {
-	    "codCia",
-	    "codCpfCnpj",
+	    "indAcesso",
+	    "cpf",
 	    "dtNascimento"
 	})
 public class Login {

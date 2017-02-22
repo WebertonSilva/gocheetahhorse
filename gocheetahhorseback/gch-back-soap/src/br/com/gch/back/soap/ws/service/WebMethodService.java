@@ -22,13 +22,13 @@ public class WebMethodService {
 
 	@WebMethod(operationName="BuscarUsuario")
 	@WebResult(name="usuario")
-	public Usuario buscarUsuario(@WebParam(name="codCia") String codCia,
+	public Usuario buscarUsuario(@WebParam(name="indAcesso") String indAcesso,
 								 @WebParam(name="cpf") String cpf, 
-								 @WebParam(name="dataNacimento") Date dtNascimento
+								 @WebParam(name="dtNascimento") Date dtNascimento
 								 ){
 		
 		System.out.println("Buscando Usuario...");
-		Usuario usuario = dao.buscarUsuario(codCia, cpf, dtNascimento);		
+		Usuario usuario = dao.buscarUsuario(indAcesso, cpf, dtNascimento);		
 		return usuario;		
 	}
 }
