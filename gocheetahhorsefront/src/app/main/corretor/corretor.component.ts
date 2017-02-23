@@ -17,7 +17,7 @@ export class CorretorComponent implements OnInit {
   
   credentials = {cpf: '38961873091', indAcesso: '1'};
   idAuth;
-  segurado;
+  corretor;
 
   formCpfSegurado: FormGroup = new FormGroup({
     cpf: new FormControl()
@@ -26,13 +26,11 @@ export class CorretorComponent implements OnInit {
   constructor(private _service: UserService, private _setCiaService:SetCiaService) {}
 
   ngOnInit() {
+    this._setCiaService.changeCia(1);
     this._service.addUser('https://gch-back-rest.herokuapp.com/rest/login', this.credentials).subscribe(
       user => {
-          this.segurado = user;
+          this.corretor = user;
           this.idAuth = true;
-          if (user.codRetorno) {
-            this._setCiaService.changeCia(user.codRetorno);
-          }
       },
       erro => {
         this.idAuth = false;

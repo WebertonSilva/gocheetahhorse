@@ -9,6 +9,7 @@ import {Subscription} from 'rxjs/Subscription';
 })
 export class HeaderComponent implements OnInit {
 
+  value;
   seguradora;
   subscription:Subscription;
 
@@ -16,7 +17,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.subscription = this._setCiaService.cia$
-       .subscribe(item => {this.seguradora = item})
+       .subscribe(item => {
+         this.value = item;
+         localStorage.setItem('seguradora', this.value);
+         this.seguradora = localStorage.getItem('seguradora');
+        })
+
   }
 
   ngOnDestroy() {
