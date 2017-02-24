@@ -35,11 +35,15 @@ public class Usuario {
 	
 	@XmlElement(name="longe", required=false)
     private double longe;
+	
+	@XmlElement(name="perfilAcesso", required=false)
+	private String perfilAcesso;
     
     public Usuario() {}
     
 	public Usuario(String codRetorno, String cpf, String nome, String email, Date dtNascimento, String endereco, double lat,
-			double longe) {
+			double longe, String perfilAcesso) {
+		
 		super();
 		
 		this.codRetorno = codRetorno;
@@ -50,6 +54,7 @@ public class Usuario {
 		this.endereco = endereco;
 		this.lat = lat;
 		this.longe = longe;
+		this.perfilAcesso = perfilAcesso;
 	}
 
 	public String getCodRetorno() {
@@ -116,7 +121,14 @@ public class Usuario {
 		this.longe = longe;
 	}    
 	
-	
+	public String getPerfilAcesso() {
+		return perfilAcesso;
+	}
+
+	public void setPerfilAcesso(String perfilAcesso) {
+		this.perfilAcesso = perfilAcesso;
+	}
+
 	public static class Builder{
 		
 	    private String codRetorno;
@@ -128,9 +140,10 @@ public class Usuario {
 	    private String endereco; 
 	    private double lat;
 	    private double longe;
+	    private String perfilAcesso;
 	    
 	    public Usuario build() {
-	    	return new Usuario(this.codRetorno, this.cpf, this.nome, this.email , this.dtNascimento, this.endereco, this.lat, this.longe);
+	    	return new Usuario(this.codRetorno, this.cpf, this.nome, this.email , this.dtNascimento, this.endereco, this.lat, this.longe, this.perfilAcesso);
 		}
 		
 	    
@@ -171,6 +184,11 @@ public class Usuario {
 	    
 		public Builder comlonge(double longe) {
 			this.longe = longe;
+			return this;
+		}
+		
+		public Builder comperfilAcesso(String perfilAcesso) {
+			this.perfilAcesso = perfilAcesso;
 			return this;
 		}
 	}
