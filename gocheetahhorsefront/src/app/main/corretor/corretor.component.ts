@@ -30,6 +30,7 @@ export class CorretorComponent implements OnInit {
     this._service.addUser('https://gch-back-rest.herokuapp.com/rest/login', this.credentials).subscribe(
       user => {
           this.corretor = user;
+          localStorage.setItem('corretor', JSON.stringify(this.corretor));
           this.idAuth = true;
       },
       erro => {
