@@ -26,4 +26,13 @@
 		<servlet-name>GchService</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
+	<filter>
+		<filter-name>CORSFilter</filter-name>
+		<filter-class>br.com.gch.back.rest.filter.CORSFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CORSFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 </web-app>
+

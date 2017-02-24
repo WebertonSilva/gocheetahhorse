@@ -3,17 +3,17 @@ package br.com.gch.back.rest.model;
 public class Login {
 	
 	private String cpf;
-	private long dataNascimento;
+	private long dtNascimento;
 	private String indAcesso;
 
 public Login() {}
 	
-	public long getDataNascimento() {
-		return this.dataNascimento;
+	public long getDtNascimento() {
+		return this.dtNascimento;
 	}
 	
-	public void setDataNascimento(long dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setDtNascimento(long dtNascimento) {
+		this.dtNascimento = dtNascimento;
 	}
 
 	public String getCpf() {

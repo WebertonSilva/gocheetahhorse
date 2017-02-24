@@ -33,9 +33,9 @@ public class GchService {
 		try {
 			System.out.println("Checagem de usuário no WebMethodService");
 			
-			System.out.println(new Date(login.getDataNascimento()));
-			System.out.println(new Date(login.getDataNascimento()).getTime());
-			Usuario usuario = dao.buscarUsuario(login.getIndAcesso(), login.getCpf(), new Date(login.getDataNascimento()));
+			System.out.println(new Date(login.getDtNascimento()));
+			System.out.println(new Date(login.getDtNascimento()).getTime());
+			Usuario usuario = dao.buscarUsuario(login.getIndAcesso(), login.getCpf(), new Date(login.getDtNascimento()));
 			if (usuario != null) {
 				System.out.println("Geração de JWT para Segurado CheetahHorseBB");
 				String compactJws = JwtToken.generateToken(login);
