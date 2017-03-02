@@ -1,0 +1,13 @@
+.box {width: 100%;
+    p {float: left; width: 50%; padding-left: 10px; font-size: 16px; color: #4A4A4A; letter-spacing: 0;
+        &:first-child {text-align: right; padding-left: 0; padding-right: 10px;}
+    }
+}
+
+.ma {
+    .box p strong {color: green;}
+}
+
+.bb {
+    .box p strong {color: orangered;}
+}

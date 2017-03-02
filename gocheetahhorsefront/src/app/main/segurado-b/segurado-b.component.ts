@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { UserService } from '../../services/user.service';
 import { SetCiaService } from '../../services/setCia.service';
@@ -18,7 +19,7 @@ export class SeguradoBComponent implements OnInit {
     cpf: new FormControl()
   });
 
-  constructor(private _service: UserService, private _setCiaService:SetCiaService) {}
+  constructor(private _service: UserService, private _setCiaService:SetCiaService, private _router: Router,) {}
 
   ngOnInit() {
     this._setCiaService.changeCia(2);
@@ -26,18 +27,13 @@ export class SeguradoBComponent implements OnInit {
 
   getSegurado() {
     let cpf = this.formSeguradoBB.get('cpf').value;
-    let segurado = {
-      cpf: '38961873091',
+    this.seguradoBB = {
+      cpf: '56345362271',
       dataNascimento: 315532800000,
       indAcesso: '1'
     }
-
-    console.log(segurado);
-
-     this._service.addUser('https://gch-back-rest.herokuapp.com/rest/login', segurado).subscribe(user => {
-        this.seguradoBB = user;
-        console.log(this.seguradoBB);
-      });
+    localStorage.setItem('seguradoBB', JSON.stringify(this.seguradoBB));
+    this._router.navigate(['/main/menu-segurado']);
   }
 
 }

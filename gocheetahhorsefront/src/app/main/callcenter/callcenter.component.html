@@ -1,27 +1,30 @@
 <div class="main-height">
   <div class="container">
-    <div *ngIf="idAuth">
+    <div *ngIf="idAuth" [ngClass]="{'ma': tipoSeguradora == 1, 'bb': tipoSeguradora == 2}">
       <h1 class="title-primary-1">COMUNICAÇÃO DE SINISTRO</h1>
-      <hr class="hr-line-1">
+      <hr [ngClass]="{'hr-line-1': tipoSeguradora == 1, 'hr-line-2': tipoSeguradora == 2, 'hr-line': !tipoSeguradora}">
 
-      <p class="subtitle">Seja bem vindo, atendente GoHorse <strong>{{atendente}},</strong> informe os dados do segurado.</p>
+      <p class="subtitle">Seja bem vindo, atendente <strong>{{atendente.nome}},</strong> informe os dados do segurado.</p>
 
       <form [formGroup]="formCallCenter" class="form-inline">
+        <p>Informeos dados do segurado:</p>
         <div class="form-group">
           <div class="radios">
             <label class="radio-inline">
-            <input type="radio" (click)="cor = 'blue'" formControlName="radio1">
-              Azul
+            <input type="radio" formControlName="seguradora" name="seguradora" value="1" (click)="setSeguradora(2)">
+              GoHorseAmarelo
             </label>
             <label class="radio-inline">
-            <input type="radio" (click)="cor = 'red'" formControlName="radio2">
-              Vermelho
+            <input type="radio" formControlName="seguradora" name="seguradora" value="2" (click)="setSeguradora(1)">
+              GoHorseVermelho
             </label>
           </div>
         </div>
         <div class="form-group">
-          <label for="cpfSegurado">CPF do Segurado</label>
-          <input type="number" class="form-control" id="cpfSegurado" formControlName="cpf">
+          <label for="cpfSegurado">CPF</label>
+          <input type="text" class="form-control" id="cpfSegurado" formControlName="cpf" disabled>
+        </div>
+        <div class="btns" *ngIf="tipoSeguradora">
           <button type="button" class="btn btn-default cancel">cancelar</button>
           <button type="button" class="btn btn-default confirm" (click)="getSegurado()">continuar</button>
         </div>
@@ -35,6 +38,4 @@
     </div>
   </div>
 </div>
-
-
 

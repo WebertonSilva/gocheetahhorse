@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 import { UserService } from '../../services/user.service';
 import { SetCiaService } from '../../services/setCia.service';
@@ -11,13 +14,38 @@ import { SetCiaService } from '../../services/setCia.service';
 })
 export class MenuSeguradoComponent implements OnInit {
 
-  indAcesso;
+  segurado;
+  idAuth;
+  localCredentials = localStorage.getItem('seguradoBB');
+  credentials;
 
-  constructor(private route:ActivatedRoute, private _service: UserService, private _setCiaService:SetCiaService ){}
+  constructor(private _service: UserService, private _setCiaService:SetCiaService){}
+  
 
   ngOnInit() {
-    this.indAcesso = this.route.snapshot.params['indAcesso']; 
-    this._setCiaService.changeCia(this.indAcesso);
+
+    if (this.localCredentials) {
+      this.credentials = this.localCredentials;
+    } else {
+      this.credentials = {cpf: '38961873091', indAcesso: '1'};
+    }
+    
+
+    this._service.addUser('https://gch-back-rest.herokuapp.com/rest/login', this.credentials).subscribe(
+      user => {
+          this.segurado = user;
+          localStorage.setItem('segurado', JSON.stringify(this.segurado));
+          this.idAuth = true;
+          if (user.codRetorno) {
+            this._setCiaService.changeCia(user.codRetorno);
+          }
+      },
+      erro => {
+        this.idAuth = false;
+      }
+    );
+
+    
   }
 
 }

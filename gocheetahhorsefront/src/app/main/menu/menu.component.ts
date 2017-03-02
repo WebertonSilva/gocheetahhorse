@@ -15,6 +15,8 @@ export class MenuComponent implements OnInit {
   
   ngOnInit() {
     this._setCiaService.changeCia('');
+    localStorage.removeItem('seguradoBB');
+    localStorage.removeItem('segurado');
   }
 
 }

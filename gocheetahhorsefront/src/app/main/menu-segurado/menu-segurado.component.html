@@ -1,16 +1,21 @@
-<div class="main-height">
+<div class="main-height" >
   <div class="container">
-    <h1 class="title-primary-1">COMUNICAÇÃO DE SINISTRO</h1>
-    <hr class="hr-line-1">
-    <div class="info-segurado">
-      <div class="box">
-        <p>Nome do Segurado</p>
-        <p></p>
+    <div *ngIf="idAuth" [ngClass]="{'ma': segurado.codRetorno == 1, 'bb': segurado.codRetorno == 2}">
+      <h1 [ngClass]="{'title-primary-1': segurado.codRetorno == 1, 'title-primary-2': segurado.codRetorno == 2}">COMUNICAÇÃO DE SINISTRO</h1>
+      <hr [ngClass]="{'hr-line-1': segurado.codRetorno == 1, 'hr-line-2': segurado.codRetorno == 2}">
+      <div class="info-segurado">
+        <div class="box">
+          <p>Nome do Segurado</p>
+          <p><strong>{{segurado.nome}}</strong></p>
+        </div>
+        <div class="box">
+          <p>CPF do Segurado</p>
+          <p><strong>{{segurado.cpf}}</strong></p>
+        </div>
       </div>
-      <div class="box">
-        <p>CPF do Segurado</p>
-        <p></p>
-      </div>
+    </div>
+    <div *ngIf="idAuth">
+
     </div>
   </div>
 </div>

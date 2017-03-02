@@ -15,7 +15,7 @@ export const rotas: Routes = [
             { path: 'menu', component: MenuComponent },
             { path: 'callcenter', component: CallcenterComponent },
             { path: 'corretor', component: CorretorComponent },
-            { path: 'menu-segurado/:indAcesso', component: MenuSeguradoComponent },
+            { path: 'menu-segurado', component: MenuSeguradoComponent },
             { path: 'segurado-b', component: SeguradoBComponent },
         ]
     }
