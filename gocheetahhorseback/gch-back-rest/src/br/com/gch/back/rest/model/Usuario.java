@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Usuario {
 	
+	
 	@XmlElement(name="codRetorno", required=false)
     private String codRetorno;
 	

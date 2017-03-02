@@ -19,6 +19,7 @@ public class LoginDao {
              String perfilCallCenterCheetah = "4";
              String perfilCallCenterHorse = "5";
              
+             
              String empresaCheetah = "Cheetah";
              String empresaHorse = "Horse";
 
