@@ -1,7 +1,5 @@
 package br.com.gch.back.soap.ws.service;
 
-import java.util.Date;
-
 import javax.inject.Inject;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -11,7 +9,8 @@ import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
 
 import br.com.gch.back.soap.ws.dao.LoginDao;
-import br.com.gch.back.soap.ws.model.Usuario;
+import br.com.gch.back.soap.ws.model.LoginEntrada;
+import br.com.gch.back.soap.ws.model.LoginSaida;
 
 @WebService
 @SOAPBinding(style=Style.DOCUMENT)
@@ -20,15 +19,12 @@ public class WebMethodService {
 	@Inject
 	private LoginDao dao;
 
-	@WebMethod(operationName="BuscarUsuario")
+	@WebMethod(operationName="logar")
 	@WebResult(name="usuario")
-	public Usuario buscarUsuario(@WebParam(name="indAcesso") String indAcesso,
-								 @WebParam(name="cpf") String cpf, 
-								 @WebParam(name="dtNascimento") Date dtNascimento
-								 ){
-		
+	public LoginSaida logar(@WebParam(name="loginEntrada") LoginEntrada loginEntrada
+								 ){		
 		System.out.println("Buscando Usuario...");
-		Usuario usuario = dao.buscarUsuario(indAcesso, cpf, dtNascimento);		
+		LoginSaida usuario = dao.logar(loginEntrada.getIndAcesso(), loginEntrada.getCpf(), loginEntrada.getDtNascimento());		
 		return usuario;		
 	}
 }
