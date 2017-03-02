@@ -1,4 +1,10 @@
 .container {max-width: 450px;
+    .ma {
+        .btns .confirm {background: green;}
+    }
+    .bb {
+        .btns .confirm {background: orangered;}
+    }
     .subtitle {font-size: 18px; color: #4A4A4A; letter-spacing: 0; text-align: center;}
 
     .form-inline {margin-top: 40px;
@@ -12,7 +18,7 @@
                 &.cancel {font-size: 14px; color: #FFFFFF; letter-spacing: 0; background: #999999; border-radius: 5px; margin-right: 20px;
                     &:hover {background: rgba(153,153,153,0.80);}
                 }
-                &.confirm {font-size: 14px; color: #FFFFFF; letter-spacing: 0; background: green; border-radius: 5px;}
+                &.confirm {font-size: 14px; color: #FFFFFF; letter-spacing: 0; border-radius: 5px;}
             }
         }
     }

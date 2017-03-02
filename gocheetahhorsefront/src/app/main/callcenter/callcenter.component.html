@@ -1,10 +1,10 @@
 <div class="main-height">
   <div class="container">
-    <div *ngIf="idAuth">
+    <div *ngIf="idAuth" [ngClass]="{'ma': tipoSeguradora == 1, 'bb': tipoSeguradora == 2}">
       <h1 class="title-primary-1">COMUNICAÇÃO DE SINISTRO</h1>
       <hr [ngClass]="{'hr-line-1': tipoSeguradora == 1, 'hr-line-2': tipoSeguradora == 2, 'hr-line': !tipoSeguradora}">
 
-      <p class="subtitle">Seja bem vindo, atendente GoHorse <strong>{{atendente.nome}},</strong> informe os dados do segurado.</p>
+      <p class="subtitle">Seja bem vindo, atendente <strong>{{atendente.nome}},</strong> informe os dados do segurado.</p>
 
       <form [formGroup]="formCallCenter" class="form-inline">
         <p>Informeos dados do segurado:</p>
@@ -22,7 +22,7 @@
         </div>
         <div class="form-group">
           <label for="cpfSegurado">CPF</label>
-          <input type="text" class="form-control" id="cpfSegurado" formControlName="cpf" [disabled]="!tipoSeguradora">
+          <input type="text" class="form-control" id="cpfSegurado" formControlName="cpf" disabled>
         </div>
         <div class="btns" *ngIf="tipoSeguradora">
           <button type="button" class="btn btn-default cancel">cancelar</button>
@@ -38,6 +38,4 @@
     </div>
   </div>
 </div>
-
-
 

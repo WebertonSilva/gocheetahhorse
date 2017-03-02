@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -21,7 +21,7 @@ export class CallcenterComponent implements OnInit {
   tipoSeguradora;
 
   formCallCenter: FormGroup = new FormGroup({
-    cpf: new FormControl(),
+    cpf: new FormControl('', Validators.required),
     seguradora: new FormControl(),
   });
 
@@ -45,9 +45,13 @@ export class CallcenterComponent implements OnInit {
     if (option === 1) {
       this._setCiaService.changeCia(1);
       this.tipoSeguradora = 1;
+      let inputCPF = this.formCallCenter.get('cpf');
+      inputCPF.enable();
     } else {
       this._setCiaService.changeCia(2);
       this.tipoSeguradora = 2;
+      let inputCPF = this.formCallCenter.get('cpf');
+      inputCPF.enable();
     }
   }
 
