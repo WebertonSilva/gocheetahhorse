@@ -38,11 +38,14 @@ public class Usuario {
 	
 	@XmlElement(name="perfilAcesso", required=false)
 	private String perfilAcesso;
+	
+	@XmlElement(name="empresa", required=false)
+	private String empresa;
     
     public Usuario() {}
     
 	public Usuario(String codRetorno, String cpf, String nome, String email, Date dtNascimento, String endereco, double lat,
-			double longe, String perfilAcesso) {
+			double longe, String perfilAcesso, String empresa) {
 		
 		super();
 		
@@ -55,6 +58,7 @@ public class Usuario {
 		this.lat = lat;
 		this.longe = longe;
 		this.perfilAcesso = perfilAcesso;
+		this.empresa = empresa;
 	}
 
 	public String getCodRetorno() {
@@ -128,6 +132,14 @@ public class Usuario {
 	public void setPerfilAcesso(String perfilAcesso) {
 		this.perfilAcesso = perfilAcesso;
 	}
+	
+	public String getEmpresa() {
+		return empresa;
+	}
+	
+	public void setEmpresa(String empresa) {
+		this.empresa = empresa;
+	}
 
 	public static class Builder{
 		
@@ -141,9 +153,10 @@ public class Usuario {
 	    private double lat;
 	    private double longe;
 	    private String perfilAcesso;
+	    private String empresa;
 	    
 	    public Usuario build() {
-	    	return new Usuario(this.codRetorno, this.cpf, this.nome, this.email , this.dtNascimento, this.endereco, this.lat, this.longe, this.perfilAcesso);
+	    	return new Usuario(this.codRetorno, this.cpf, this.nome, this.email , this.dtNascimento, this.endereco, this.lat, this.longe, this.perfilAcesso, this.empresa);
 		}
 		
 	    
@@ -189,6 +202,11 @@ public class Usuario {
 		
 		public Builder comperfilAcesso(String perfilAcesso) {
 			this.perfilAcesso = perfilAcesso;
+			return this;
+		}
+		
+		public Builder comempresa(String empresa) {
+			this.empresa = empresa;
 			return this;
 		}
 	}
