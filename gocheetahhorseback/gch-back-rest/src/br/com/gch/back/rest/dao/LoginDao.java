@@ -76,8 +76,10 @@ public class LoginDao {
                            || indAcesso.equals("4") && indAcesso.equals(usuario.getPerfilAcesso())
                            || indAcesso.equals("5") && indAcesso.equals(usuario.getPerfilAcesso())) {
                     return usuario;
+             } else if (indAcesso.equals("") || indAcesso == null) {
+            	 return usuario;
              } else {
-                    return null;
+            	 return null;
              }
        }
 }
