@@ -1,8 +1,8 @@
 <div class="main-height" >
   <div class="container">
-    <div *ngIf="idAuth" [ngClass]="{'ma': segurado.codRetorno == 1, 'bb': segurado.codRetorno == 2}">
-      <h1 [ngClass]="{'title-primary-1': segurado.codRetorno == 1, 'title-primary-2': segurado.codRetorno == 2}">COMUNICAÇÃO DE SINISTRO</h1>
-      <hr [ngClass]="{'hr-line-1': segurado.codRetorno == 1, 'hr-line-2': segurado.codRetorno == 2}">
+    <div *ngIf="isAuth" [ngClass]="{'ma': empresa == 1, 'bb': empresa == 2}">
+      <h1 [ngClass]="{'title-primary-1': empresa == 1, 'title-primary-2': empresa == 2}">COMUNICAÇÃO DE SINISTRO</h1>
+      <hr [ngClass]="{'hr-line-1': empresa == 1, 'hr-line-2': empresa == 2}">
       <div class="info-segurado">
         <div class="box">
           <p>Nome do Segurado</p>
@@ -14,8 +14,11 @@
         </div>
       </div>
     </div>
-    <div *ngIf="idAuth">
+    <div *ngIf="isAuth === false">
+      <h1 class="title-primary-1">Atenção</h1>
+      <hr class="hr-line">
 
+      <p class="subtitle">Usuario não existe</p>
     </div>
   </div>
 </div>

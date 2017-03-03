@@ -23,15 +23,17 @@ export class SeguradoBComponent implements OnInit {
 
   ngOnInit() {
     this._setCiaService.changeCia(2);
+    localStorage.removeItem('seguradoBB');
   }
 
   getSegurado() {
     let cpf = this.formSeguradoBB.get('cpf').value;
     this.seguradoBB = {
-      cpf: '56345362271',
-      dataNascimento: 315532800000,
-      indAcesso: '1'
+      cpf: cpf,
+      dtNascimento: '315543600000',
+      indAcesso: '2'
     }
+    console.log(this.seguradoBB);
     localStorage.setItem('seguradoBB', JSON.stringify(this.seguradoBB));
     this._router.navigate(['/main/menu-segurado']);
   }

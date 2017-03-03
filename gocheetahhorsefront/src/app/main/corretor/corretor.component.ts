@@ -15,7 +15,7 @@ import { SetCiaService } from '../../services/setCia.service';
 })
 export class CorretorComponent implements OnInit {
   
-  credentials = {cpf: '38961873091', indAcesso: '1'};
+  credentials = {cpf: '16480376668', indAcesso: '3'};
   idAuth;
   corretor;
 
@@ -26,15 +26,17 @@ export class CorretorComponent implements OnInit {
   constructor(private _service: UserService, private _setCiaService:SetCiaService) {}
 
   ngOnInit() {
-    this._setCiaService.changeCia(1);
+    
     this._service.addUser('https://gch-back-rest.herokuapp.com/rest/login', this.credentials).subscribe(
       user => {
           this.corretor = user;
           localStorage.setItem('corretor', JSON.stringify(this.corretor));
           this.idAuth = true;
+          this._setCiaService.changeCia(1);
       },
       erro => {
         this.idAuth = false;
+        this._setCiaService.changeCia('');
       }
     );
   } 

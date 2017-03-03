@@ -15,17 +15,18 @@ import { SetCiaService } from '../../services/setCia.service';
 export class MenuSeguradoComponent implements OnInit {
 
   segurado;
-  idAuth;
+  isAuth;
   localCredentials = localStorage.getItem('seguradoBB');
+  empresa;
   credentials;
 
   constructor(private _service: UserService, private _setCiaService:SetCiaService){}
   
 
   ngOnInit() {
-
     if (this.localCredentials) {
       this.credentials = this.localCredentials;
+      
     } else {
       this.credentials = {cpf: '38961873091', indAcesso: '1'};
     }
@@ -33,15 +34,22 @@ export class MenuSeguradoComponent implements OnInit {
 
     this._service.addUser('https://gch-back-rest.herokuapp.com/rest/login', this.credentials).subscribe(
       user => {
-          this.segurado = user;
-          localStorage.setItem('segurado', JSON.stringify(this.segurado));
-          this.idAuth = true;
-          if (user.codRetorno) {
-            this._setCiaService.changeCia(user.codRetorno);
+          localStorage.setItem('segurado', JSON.stringify(user));
+          this.segurado = JSON.parse(localStorage.getItem('segurado'));
+          console.log(this.segurado);
+          this.isAuth = true;
+          if (this.segurado.empresa === 'Cheetah') {
+            this.empresa = 1;
           }
+          else if (this.segurado.empresa === 'Horse') {
+            this.empresa = 2
+          }
+          this._setCiaService.changeCia(this.empresa);
+          
       },
       erro => {
-        this.idAuth = false;
+        this.isAuth = false;
+        this._setCiaService.changeCia('');
       }
     );
 

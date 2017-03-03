@@ -17,6 +17,8 @@ export class MenuComponent implements OnInit {
     this._setCiaService.changeCia('');
     localStorage.removeItem('seguradoBB');
     localStorage.removeItem('segurado');
+    localStorage.removeItem('corretor');
+    localStorage.removeItem('atendente');
   }
 
 }

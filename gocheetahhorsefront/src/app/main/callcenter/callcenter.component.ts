@@ -15,7 +15,7 @@ import { SetCiaService } from '../../services/setCia.service';
 })
 export class CallcenterComponent implements OnInit {
 
-  credentials = {cpf: '22666755592', indAcesso: '1'};
+  credentials = {cpf: '34209374741', indAcesso: ''};
   idAuth;
   atendente;
   tipoSeguradora;
