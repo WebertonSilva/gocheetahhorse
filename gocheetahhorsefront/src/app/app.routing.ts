@@ -8,15 +8,10 @@ import { MenuComponent } from './main/menu/menu.component';
 import { MainComponent } from './main/main.component';
 
 export const rotas: Routes = [
-    { path: '', redirectTo: '/main/menu', pathMatch: 'full' },
-    {
-        path: 'main', component: MainComponent,
-        children: [
-            { path: 'menu', component: MenuComponent },
-            { path: 'callcenter', component: CallcenterComponent },
-            { path: 'corretor', component: CorretorComponent },
-            { path: 'menu-segurado', component: MenuSeguradoComponent },
-            { path: 'segurado-b', component: SeguradoBComponent },
-        ]
-    }
+    { path: '', redirectTo: '/menu', pathMatch: 'full' },
+    { path: 'menu', component: MenuComponent },
+    { path: 'callcenter', component: CallcenterComponent },
+    { path: 'corretor', component: CorretorComponent },
+    { path: 'menu-segurado', component: MenuSeguradoComponent },
+    { path: 'segurado-b', component: SeguradoBComponent },
 ]

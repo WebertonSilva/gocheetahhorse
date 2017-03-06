@@ -35,7 +35,7 @@ export class SeguradoBComponent implements OnInit {
     }
     console.log(this.seguradoBB);
     localStorage.setItem('seguradoBB', JSON.stringify(this.seguradoBB));
-    this._router.navigate(['/main/menu-segurado']);
+    this._router.navigate(['/menu-segurado']);
   }
 
 }
