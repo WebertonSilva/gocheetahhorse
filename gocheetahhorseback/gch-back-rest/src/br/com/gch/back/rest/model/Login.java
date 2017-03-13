@@ -5,8 +5,9 @@ public class Login {
 	private String cpf;
 	private long dtNascimento;
 	private String indAcesso;
-
-public Login() {}
+	
+	
+	public Login() {}
 	
 	public long getDtNascimento() {
 		return this.dtNascimento;
