@@ -2,7 +2,6 @@ package br.com.gch.back.rest.service;
 
 import java.util.Date;
 
-import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -23,11 +22,8 @@ import br.com.gch.back.rest.model.ValidaSegurado;
 @Path("/")
 public class GchService {
 
-	@Inject
-	private LoginDao loginDao;
-	
-	@Inject
-	private SeguradoDao seguradoDao;
+	private LoginDao loginDao = new LoginDao();
+	private SeguradoDao seguradoDao = new SeguradoDao();
 	
 	/**
 	 * Login
